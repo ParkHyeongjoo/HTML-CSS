@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <button id='like'>좋아요</button><span>0</span>
+    <br>
+    <input type="text"><button class='writeCom'>댓글작성</button>
+    <br>
+    <div id="com">
+        <p>첫댓글<button class='removeCom'>삭제</button></p>
+    </div>
+    
+    <script>
+        $(document).on("click","#like",function(){
+            let span = Number($("span").text()) // 현재 좋아요 개수 가져오기
+            if($("#like").text()=="좋아요"){
+                $("#like").text("좋아요 취소")
+                $("span").text(span+1)
+            }else{
+                $("#like").text("좋아요")
+                $("span").text(span-1)
+            }
+        })
+        $(document).on("click",".writeCom",function(){           
+            let text = $("input").val() // text 박스 안에 내용 저장
+            if($("input").val()!=""){ // text 박의 안의 내용이 있을때에만 실행
+                $("input").val("") // 댓글 추가하고나서 text 박스 비워주기
+                // div#com 내부 앞에 새 댓글 추가
+                $("#com").prepend("<p>"+text+"<button class='removeCom'>삭제</button></p>")
+            }
+        })
+        $(document).on("click",".removeCom",function(){
+            // this = 클릭한 .removeCom
+            // parent = 클릭한 .removeCom의 p태그
+            $(this).parent().remove()
+        })
+    </script>
+</body>
+</html>

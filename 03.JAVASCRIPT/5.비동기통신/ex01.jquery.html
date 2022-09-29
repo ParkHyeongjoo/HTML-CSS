@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../4.Jquery/js/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div id="movieTable"></div>
+
+    <button onclick="req()">요청</button>
+
+    <script>
+        function req(){
+            $.ajax({
+                // 어디로 요청할건지
+                url:"http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220920",
+                // 어떻게 요청할건지(요청 방식 - get/post/put/delete)
+                // type 속성은 default 값이 get
+                type:"get",
+                // 요청 - 응답 성공했을 때 수행할 작업
+                success:function(data){
+                    // 응답받은 데이터를 테이블 형식으로 #movieTable div영역에 출력
+                    let movieList = data.boxOfficeResult.dailyBoxOfficeList
+
+                    $("#movieTable").prepend("<table border=1px solid black id=table><tr><th>순위</th><th>영화제목</th><th>개봉일자</th></tr>")
+                    for(let i=0; i<movieList.length; i++){
+                        $("#table").append("<tr align = center><td>"+movieList[i].rank+"</td><td>"+movieList[i].movieNm+"</td><td>"+movieList[i].openDt+"</td></tr>")
+                    }                   
+                    $("#movieTable").append("</table>")
+                                                  
+                },
+                // 요청 - 응답 실패했을 때 수행할 작업
+                error:function(){
+                    alert("실패")
+                }
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/01.HTML/img/img.jpg" onmouseover="img1()" onmouseout="img2()">
+    <script>
+        let img = document.getElementsByTagName("img")
+        
+        function img1(){
+            img[0].src="/01.HTML/img/img2.jpg"
+        }
+        function img2(){
+            img[0].setAttribute("src","/01.HTML/img/img.jpg")
+        }
+    </script>
+</body>
+</html>

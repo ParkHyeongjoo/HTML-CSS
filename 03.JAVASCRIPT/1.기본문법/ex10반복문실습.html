@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1~100 랜덤 뽑기
+        var rd = Math.floor(Math.random()*100)+1
+        var input = 0
+        
+        while(true){
+            input = Number(prompt("숫자를 입력해주세요"))
+            if(rd>input){
+                alert("입력한 숫자보다 큰 수 입니다👍")
+            }else if(rd<input){
+                alert("입력한 숫자보다 작은 수 입니다👎")
+            }else{
+                break;
+            }
+        }
+        alert("축하드립니다! 정답입니다!🎉")
+    </script>
+</body>
+</html>

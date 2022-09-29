@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 312
+
+        num = num - num%100
+
+        console.log("백의 자리 이하 버린 결과 >> " + num)
+
+        // parseInt(정수로 형변환)
+        console.log(parseInt(num))
+
+        // parseFloat(실수로 형변환)
+        let num2 = "3.01"
+        console.log(parseFloat(num2))
+
+        // Number(숫자형으로 형변환)
+        console.log(Number(num2))
+
+        // prompt의 결과값(String)을 바로 숫자형으로 변환
+        // Number(prompt("나이 입력?"))
+
+        let num3 = 100;
+        console.log(num3)
+        console.log(num3.toString())
+        console.log(String(num3))
+
+    </script>
+</body>
+</html>
